@@ -1,6 +1,6 @@
 # Plain dotfiles baseline
 
-Status: the reviewed 39-file baseline is published at [alexcatdad/dotfiles](https://github.com/alexcatdad/dotfiles) and activated on the current Mac. All 18 live checks passed; repeated activation made zero writes. Private backups and the deployment journal remain outside the repository. Other devices have not been activated.
+Status: the original reviewed 39-file baseline is published at [alexcatdad/dotfiles](https://github.com/alexcatdad/dotfiles) and activated on the current Mac. All 18 live checks passed; repeated activation made zero writes. Private backups and the deployment journal remain outside the repository. Other devices have not been activated. The current public inventory contains 40 files after adding the CI workflow; see `PUBLIC-CONTENTS.md`.
 
 This setup preserves the approved shell shortcuts and appearance using plain Zsh files, native package manifests, and explicit machine differences. No Paw, Zinit, Ansible, startup downloads, or synchronization daemon is required.
 
