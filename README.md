@@ -25,7 +25,7 @@ The project file governs this project. The portable file supplies defaults acros
 
 The portable file is installed on the current Mac after reconciliation with existing global guidance. For each later rollout, review existing instructions, preserve device-specific rules, and merge the portable defaults deliberately. On devices without Codex, a remote maintenance agent can read the file explicitly; installing Codex is not required solely for this workflow.
 
-The 2026-10-06 agent-focused revision is installed on the current Mac and retained locally; it has not been pushed. It defines KISS, unattended implementation through a green and ready PR, current service roles, and language preferences. Operational runbooks and rationale are in Scratchpad, located through `RUNBOOK.md`. Device-specific requirements remain in this project's documents and manifests. The installed file matches the source, no global override masks it, and its original is privately backed up. Codex's refreshed instruction context confirms the new global guidance is loaded.
+The 2026-10-06 agent-focused revision is installed on the current Mac. It defines KISS, unattended implementation through a green and ready PR, current service roles, and language preferences. Operational runbooks and rationale are in Scratchpad, located through `RUNBOOK.md`. Device-specific requirements remain in this project's documents and manifests. The installed file matches the source, no global override masks it, and its original is privately backed up. Codex's refreshed instruction context confirms the new global guidance is loaded.
 
 Source: [official instruction discovery documentation](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
