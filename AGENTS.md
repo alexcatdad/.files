@@ -4,7 +4,7 @@
 
 This file governs work in this project. `home/.codex/AGENTS.md` is the separate, portable device-wide instruction file; do not install this project-specific file as global guidance.
 
-- Read `README.md`, `RUNBOOK.md`, and the relevant decisions before changing the baseline. The baseline passed isolated Linux and disposable native macOS validation. The user has authorized reviewed public repository creation and current Mac activation; keep future targets and changes within their own task authorization.
+- Read `README.md`, `RUNBOOK.md`, and the relevant decisions before changing the baseline. The baseline passed isolated Linux and disposable native macOS validation. The reviewed public repository and current Mac activation are complete, with all 18 live checks passing. Keep future targets and changes within their own task authorization.
 - Shared candidate files live in `home/`, optional machine integrations in `machines/`, native package manifests in `packages/`, and isolated checks in `tests/container/`.
 - Agents may parallelize independent work. Give each agent clear ownership, integrate its findings, and close it when done. Avoid conflicting edits.
 - Every project must have an append-only `decisions.jsonl` for consequential decisions. Every activity requiring multiple CLI commands must have an existing or newly created runbook; keep it current.

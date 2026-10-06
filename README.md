@@ -1,6 +1,6 @@
 # Plain dotfiles baseline
 
-Status: candidate passed isolated Linux and disposable native macOS validation. Public repository creation and current Mac activation are now authorized after review; see `RUNBOOK.md` and the append-only decisions for outcomes.
+Status: the reviewed 39-file baseline is published at [alexcatdad/.files](https://github.com/alexcatdad/.files) and activated on the current Mac. All 18 live checks passed; repeated activation made zero writes. Private backups and the deployment journal remain outside the repository. Other devices have not been activated.
 
 This setup preserves the approved shell shortcuts and appearance using plain Zsh files, native package manifests, and explicit machine differences. No Paw, Zinit, Ansible, startup downloads, or synchronization daemon is required.
 
@@ -23,7 +23,7 @@ This setup preserves the approved shell shortcuts and appearance using plain Zsh
 
 The project file governs this project. The portable file supplies defaults across projects on each device; do not substitute the project file for it. If a device uses a custom Codex home, place the portable file there instead. An existing non-empty `AGENTS.override.md` takes precedence at that level; inspect and reconcile it rather than deleting or overwriting it blindly. Project instructions are loaded after global instructions and can specialize them.
 
-Neither file is being installed on a device during preparation. At rollout, review existing global instructions, preserve device-specific rules, and merge the portable defaults deliberately. On devices without Codex, a remote maintenance agent can read the file explicitly; installing Codex is not required solely for this workflow.
+The portable file is installed on the current Mac after reconciliation with existing global guidance. For each later rollout, review existing instructions, preserve device-specific rules, and merge the portable defaults deliberately. On devices without Codex, a remote maintenance agent can read the file explicitly; installing Codex is not required solely for this workflow.
 
 Source: [official instruction discovery documentation](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
@@ -50,7 +50,7 @@ Alias reminders are implemented in plain Zsh at `home/.config/shell/alias-tips.z
 
 ## Public/private boundary
 
-Use this allowlist for future publication review: `home/`, `machines/`, `packages/`, `tests/`, `examples/`, `README.md`, `AGENTS.md`, `RUNBOOK.md`, `ACTIVATION.md`, `PUBLIC-CONTENTS.md`, `SKILL-SOURCES.md`, `.gitignore`, `.dockerignore`, and a reviewed `decisions.jsonl`. Review the exact individual files listed in `PUBLIC-CONTENTS.md`, not just these directory names. Reports and scratch files are excluded. The existing `.git` directory is not reviewed public history and must not be reused or published automatically.
+Use this allowlist for future publication review: `home/`, `machines/`, `packages/`, `tests/`, `examples/`, `README.md`, `AGENTS.md`, `RUNBOOK.md`, `ACTIVATION.md`, `PUBLIC-CONTENTS.md`, `SKILL-SOURCES.md`, `.gitignore`, `.dockerignore`, and a reviewed `decisions.jsonl`. Review the exact individual files listed in `PUBLIC-CONTENTS.md`, not just these directory names. Reports and scratch files are excluded. Inherited unreviewed Git metadata was archived privately; the public repository starts with fresh reviewed history.
 
 Do not copy host credential files, SSH keys/configuration, authorized keys, known hosts, Atuin keys/session/database, shell histories, environment databases, application caches, hardware identities, or project secrets. `.gitconfig.local`, `.zshenv.local`, and `.zshrc.local` remain private. Secret filtering in history is a convenience, not a guarantee that commands are secret-free.
 
@@ -87,4 +87,4 @@ On macOS, the Brewfile is a native Homebrew manifest and includes Bun and Go. Go
 
 Alias reminders ship with the shared shell files and need no separate installation. On machines without native packages for autosuggestions, highlighting, or completions, the pinned archives in `tests/container/install-plugins.sh` can use the documented `~/.local/share/zsh/plugins/` paths. Do not copy dependency `.git` directories into the dotfiles project.
 
-`ACTIVATION.md` maps every managed file and defines explicit copies, private backups, drift checks, repeatable no-ops, rollback, and acceptance. Live activation requires review and authorization of the exact target and file subset. Do not use a bulk copy or Homebrew cleanup command. Paw Proxy consumers must be inspected before any service change. Actual macOS startup, terminal appearance, existing history continuity, and remote SSH/Tailscale access remain separate acceptance checks.
+`ACTIVATION.md` maps every managed file and defines explicit copies, private backups, drift checks, repeatable no-ops, rollback, and acceptance. Later activation requires review and authorization of the exact target and file subset. Do not use a bulk copy or Homebrew cleanup command. Paw Proxy consumers must be inspected before any service change. Native startup and synthetic history search passed on the current Mac; terminal appearance, existing history continuity, and remote SSH/Tailscale access remain separate acceptance checks.

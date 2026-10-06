@@ -1,6 +1,6 @@
 # Public contents review
 
-Status: exact candidate review passed; the user now authorizes public repository creation after this review. Only fresh history containing the reviewed allowlist may be published. Current Mac activation is separately included in that task.
+Status: the user-authorized public repository is created with fresh history containing exactly the 39 reviewed files below. The current Mac rollout is complete. Private deployment state, original Git metadata, reports, and scratch files remain excluded.
 
 ## Reviewed boundary
 
@@ -8,7 +8,7 @@ Read each current file in the inventory below, including hidden candidate files,
 
 The public upstream repository links and Homebrew tap identify published projects intentionally. Tool versions, archive digests, image digests, and synthetic fixture names are test provenance rather than credentials. The device profile name records a deliberate machine class, not a network target.
 
-The existing `.git` directory and all inherited history are entirely unreviewed. This review says nothing about what that history contains. Do not reuse, stage, commit, configure a remote, push, or publish it based on this document. User authorization must cover the final reviewed public files separately.
+The inherited `.git` directory was unreviewed and was archived privately outside the checkout. Its objects and checkpoint refs were not published. The new repository was initialized with reviewed files and GitHub no-reply authorship under the user's explicit publication authorization.
 
 ## Exact candidate inventory
 
@@ -29,7 +29,7 @@ The files below are publication candidates, not a staging command. New files und
 | Documents added in this review | `PUBLIC-CONTENTS.md`, `ACTIVATION.md`, `SKILL-SOURCES.md` |
 | Synthetic override examples | `examples/.gitconfig.local.example`, `examples/.zshenv.local.example`, `examples/.zshrc.local.example` |
 
-Final integration review includes the completed activation/source documents, synthetic override examples, and updated project/device guidance. The examples contain only comments and synthetic placeholders, including an example.invalid address. The exact reviewed hashes are recorded locally in excluded `outputs/public-files.sha256`; any later change requires another review and snapshot. This is candidate content review, not approval of Git history, activation, or publication.
+Final integration review includes the completed activation/source documents, synthetic override examples, and updated project/device guidance. The examples contain only comments and synthetic placeholders, including an example.invalid address. The exact reviewed hashes are recorded locally in excluded `outputs/public-files.sha256`; any later change requires another review and snapshot. Publication and current Mac activation were separately authorized and completed; this inventory does not authorize future device rollouts or arbitrary new files.
 
 The native macOS rehearsal revision reviews two shared shell changes (Homebrew completion paths and explicit automatic icons for tree), its updated synthetic alias assertion, and the setup/results documentation and decisions. They add only generic paths, public software provenance, synthetic tests, and measured outcomes. VM disks, temporary SSH material, host state and detailed logs remain excluded. Refresh the same exact 39-file hash snapshot after these changes; native test success does not authorize publication or live host activation.
 

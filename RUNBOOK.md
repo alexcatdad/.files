@@ -2,7 +2,9 @@
 
 ## Authorized publication and current Mac activation
 
-The user now authorizes review followed by creation of the public `.files` repository and activation on the current Mac. Review only the exact 39-file allowlist. Preserve inherited Git metadata privately outside the project and create fresh history; do not publish checkpoint/tree refs. Use the publisher's GitHub no-reply identity for public commits.
+Completed under the user's authorization: the public `.files` repository contains exactly 39 reviewed files in fresh history, and the current Mac baseline is active. Inherited Git metadata and rollback state were preserved privately outside the project. Public commits use GitHub no-reply authorship. The following sequence records the performed operation and is not authorization for another target.
+
+The selected 18 destinations made 17 writes and one identical-file no-op; a repeated application made zero writes. Seven original symlink objects were backed up without modifying their targets. Existing identical ledger skill files and private startup overrides were retained. Three missing Zsh plugins were installed without upgrades; the verified manually installed ChatGPT app was preserved. A native completion audit required removal of the group-write bit from one Homebrew completion parent directory; its prior mode and ownership were recorded privately for guarded rollback. All 18 live checks passed with synthetic fixtures. Real connectivity, visual appearance, licenses, accounts, and permissions remain separate acceptance checks.
 
 1. Refresh public review and hashes after documentation changes; stage individual reviewed paths only. Create the public repository and push only the fresh main branch.
 2. Confirm target paths/owners/includes and freeze candidate hashes. Keep private backups and journal outside this checkout. Replace old symlink objects, never their targets. Retain an identical existing skill as a no-op and avoid duplicating the existing ledger skill in another discovery directory.

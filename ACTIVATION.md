@@ -1,6 +1,6 @@
 # Reviewed device activation and rollback
 
-Status: tested in a disposable macOS guest; the user now authorizes the current Mac rollout. Follow the per-file journal and preserve private machine state. Software checks do not establish visual appearance, account setup, or connectivity.
+Status: the authorized current Mac rollout is complete. Eighteen selected destinations were verified: initial application made 17 writes and one no-op; repeated application made zero writes. Existing identical personal-ledger files were retained in their original skill directory. Private backup objects and the journal remain outside this checkout. All 18 live checks passed. Software checks do not establish visual appearance, account setup, or real connectivity.
 
 Use explicit per-file copies. Repository edits must not silently change a running device through symlinks. Never copy `home/` recursively, replace a whole `.config` directory, or install the project-root `AGENTS.md` as global guidance. The tables below are the complete candidate file inventory; packages and test infrastructure are not home files.
 
