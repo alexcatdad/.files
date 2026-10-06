@@ -10,7 +10,7 @@ This setup preserves the approved shell shortcuts and appearance using plain Zsh
 - `machines/mac-studio.zsh`: optional Mac Studio integration. It is not automatically selected by hostname and is not installed in the Linux test image.
 - `packages/Brewfile`: the approved Mac package baseline. `jq`, Bun, and Go are required on every managed device. Use native packages where available; Bun already has an explicit pinned Linux installation in the container setup.
 - `tests/container/`: an isolated ARM64 Debian setup and integration checks. Debian native packages provide the Linux baseline; official pinned binary releases provide tools absent from Debian's package set.
-- `RUNBOOK.md` and `decisions.jsonl`: operations and accepted choices.
+- `RUNBOOK.md`: locator for operational runbooks in Scratchpad. Scratchpad holds project memory and procedures; `decisions.jsonl` retains historical evidence.
 - `ACTIVATION.md`: per-file destinations, conflict review, repeatable activation, rollback, and device acceptance.
 - `PUBLIC-CONTENTS.md`: exact candidate publication inventory and its privacy review boundary.
 - `SKILL-SOURCES.md`: verified public upstream references and revision status for personal skills.
@@ -25,11 +25,15 @@ The project file governs this project. The portable file supplies defaults acros
 
 The portable file is installed on the current Mac after reconciliation with existing global guidance. For each later rollout, review existing instructions, preserve device-specific rules, and merge the portable defaults deliberately. On devices without Codex, a remote maintenance agent can read the file explicitly; installing Codex is not required solely for this workflow.
 
+The 2026-10-06 agent-focused revision is installed on the current Mac and retained locally; it has not been pushed. It defines KISS, unattended implementation through a green and ready PR, current service roles, and language preferences. Operational runbooks and rationale are in Scratchpad, located through `RUNBOOK.md`. Device-specific requirements remain in this project's documents and manifests. The installed file matches the source, no global override masks it, and its original is privately backed up. Codex's refreshed instruction context confirms the new global guidance is loaded.
+
 Source: [official instruction discovery documentation](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
 ## Portable personal skills
 
-The device-wide instructions identify Scratchpad for durable project memory and pa-mcp for personal ledger tasks. Agents must discover connected capabilities, select the correct scope, and follow task authorization; no financial data or memory service is accessed merely because the instructions are installed.
+The device-wide instructions identify Scratchpad for project memory and runbooks, and pa-mcp for personal-assistant state: attention, tasks/reminders, bills, pet care, travel, finances, and buying intents. Codex handles conversation and scheduled execution; pa-mcp provides typed domain operations. Available tool schemas determine connected capabilities; installing instructions does not authorize access to personal data.
+
+Scratchpad stores consequential decisions, ADRs, findings, failures, constraints, questions/answers, project state, and runbooks. Use its typed capture and retrieval tools with provenance, authority, and confidence. Optional repository mirroring is managed by Scratchpad. Codex discovers the packaged skills; the installed agent instructions do not duplicate their loading or workflow rules. The personal-ledger snapshot below covers the financial subset of pa-mcp.
 
 | Skill | Purpose | Candidate source and review |
 | --- | --- | --- |
@@ -43,6 +47,10 @@ The intended user-level destination is `~/.agents/skills/`, as documented in [of
 ## Preserved behavior
 
 The `ls`, `ll`, `la`, `lt`, `tree`, `grep`, and `find` aliases remain. Zoxide provides `cd`; Atuin provides Ctrl-R search; Bun is the primary runtime while fnm selects Node versions per project. Direnv handles project environments. Autosuggestions, fast syntax highlighting, completion, and alias tips load explicitly. The only custom utility functions are `duf` and `suggest-aliases`.
+
+`.zshenv` provides `woodpecker` → `woodpecker-cli`, `scaleway` → `scw`, `proton-pass` → `pass-cli`, and `opentofu` → `tofu` in interactive and non-interactive Zsh. Each alias requires the target CLI and leaves an existing executable with the alias name untouched. These are shell aliases; shell-free process launches use the native executable names. No optional CLI is installed by this configuration.
+
+These aliases are active on the current Mac. The isolated 18-check baseline, synthetic argument/exit-status and name-conflict checks, native macOS startup-mode checks, and real CLI version calls passed. `.zshenv` was applied with its original privately backed up and the change journaled; the later agent-instruction rollout verified it unchanged and made no additional shell writes.
 
 Atuin is configured for local history without automatic cloud synchronization, update checks, daemon setup, or AI bindings. Existing account/history data is never copied. Ctrl-R is the shell binding; Command-R is terminal-specific and has not been assumed equivalent.
 
@@ -73,7 +81,7 @@ The integration runner uses Bun and a standard-library Go helper for the real ps
 
 The disposable headless macOS 26.6.2 guest passed 18 native checks, including actual Ctrl-R history search, Bun completion loading, fnm project switching, Go offline compilation, direnv, and native Ghostty validation. The full Brewfile installed after reviewing and trusting its two third-party package entries under Homebrew 7. A repeated package setup required no new installs; repeated file activation made zero writes. All 20 shared files rolled back to independently verified original states. Synthetic checks also exercised interrupted writes, local drift rejection, and symlink preservation.
 
-This was a prepared Cirrus Labs base image with preinstalled developer/CI tools, not factory Setup Assistant. It does not establish sign-in, license activation, physical USB/display behavior, OS permissions, visual appearance, fresh Codex skill discovery, or real Tailscale enrollment. See the native rehearsal and package-trust/completion-permission steps in `RUNBOOK.md`. No host baseline activation or publication occurred. The disposable VM and its image cache were removed; local evidence remains excluded in `outputs/`.
+This was a prepared Cirrus Labs base image with preinstalled developer/CI tools, not factory Setup Assistant. It does not establish sign-in, license activation, physical USB/display behavior, OS permissions, visual appearance, fresh Codex skill discovery, or real Tailscale enrollment. The preserved Scratchpad runbook, located through `RUNBOOK.md`, contains the native rehearsal and package-trust/completion-permission steps. No host baseline activation or publication occurred. The disposable VM and its image cache were removed; local evidence remains excluded in `outputs/`.
 
 ### Approved desktop apps
 

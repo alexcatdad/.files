@@ -4,14 +4,14 @@
 
 This file governs work in this project. `home/.codex/AGENTS.md` is the separate, portable device-wide instruction file; do not install this project-specific file as global guidance.
 
-- Read `README.md`, `RUNBOOK.md`, and the relevant decisions before changing the baseline. The baseline passed isolated Linux and disposable native macOS validation. The reviewed public repository and current Mac activation are complete, with all 18 live checks passing. Keep future targets and changes within their own task authorization.
+- Use `README.md` for baseline scope and reproducible checks; retrieve relevant project context and runbooks from Scratchpad when changing that baseline. `RUNBOOK.md` locates the central records. Keep future targets and changes within their own task authorization.
 - Shared candidate files live in `home/`, optional machine integrations in `machines/`, native package manifests in `packages/`, and isolated checks in `tests/container/`.
 - Agents may parallelize independent work. Give each agent clear ownership, integrate its findings, and close it when done. Avoid conflicting edits.
-- Every project must have an append-only `decisions.jsonl` for consequential decisions. Every activity requiring multiple CLI commands must have an existing or newly created runbook; keep it current.
+- Keep project memory and operational runbooks in Scratchpad; confirm project scope on every call. Capture consequential rationale and reusable procedures with accurate authority, confidence, and evidence. Report unsaved records if the service is unavailable.
 
 ## Baseline and privacy
 
-- Preserve the approved baseline in `decisions.jsonl`. Record consequential decisions and update `RUNBOOK.md` for multi-command operations.
+- Apply KISS: preserve the approved baseline and choose the smallest correct change. Store multi-step procedures in Scratchpad with prerequisites, scope, verification, and rollback.
 - Use `ACTIVATION.md` before a device rollout and `PUBLIC-CONTENTS.md` before publication review. Keep installation separate from upgrades; use the documented no-upgrade setup command. Follow `SKILL-SOURCES.md` for reviewed source revisions rather than silently refreshing skill snapshots.
 - Use plain files, native package managers, and explicit commands. Do not introduce Paw, Ansible, a plugin manager, a sync daemon, or a custom configuration parser.
 - Do not use Python for agent-authored scripts, automation, data processing, or validation commands. Use shell, Bun/TypeScript, or Go instead. Python use requires an explicit user exception. Existing Python-dependent tools are not authorization to use Python for new work; flag their dependencies and preserve approved behavior when planning a replacement.
@@ -27,7 +27,7 @@ This file governs work in this project. `home/.codex/AGENTS.md` is the separate,
 
 ## Validation and delivery
 
-- For shell, plugin, or package changes, follow the Docker build/run commands in `README.md` and the container section of `RUNBOOK.md`. Do not rerun the container suite for documentation-only edits.
+- For shell, plugin, or package changes, follow the Docker build/run commands in `README.md` and the relevant Scratchpad runbook. Do not rerun the container suite for documentation-only edits.
 - Parse changed Zsh files before executing them. Use synthetic fixtures for behavior tests and validate the native Brewfile syntax separately.
 - Preserve Starship and Ghostty appearance unless the user requests a change. Validate Ghostty with the installed native validator when its configuration changes.
 - Review the exact public file allowlist in `README.md`; never stage the entire workspace. `work/` and `outputs/` are local artifacts, and existing `.git` history remains unreviewed.
