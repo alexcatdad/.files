@@ -1,6 +1,6 @@
 # Public contents review
 
-Status: the user-authorized public repository is created with fresh history containing exactly the 39 reviewed files below. The current Mac rollout is complete. Private deployment state, original Git metadata, reports, and scratch files remain excluded.
+Status: the user-authorized public repository was created with a reviewed 39-file baseline. The current inventory contains 40 files, including the GitHub Actions workflow. The current Mac rollout is complete. Private deployment state, original Git metadata, reports, and scratch files remain excluded.
 
 ## Reviewed boundary
 
@@ -25,13 +25,14 @@ The files below are publication candidates, not a staging command. New files und
 | Personal ledger skill | `home/.agents/skills/personal-ledger/SKILL.md`, `home/.agents/skills/personal-ledger/agents/openai.yaml`, `home/.agents/skills/personal-ledger/references/statements.md`, `home/.agents/skills/personal-ledger/references/evidence.md` |
 | Deliberate machine difference | `machines/mac-studio.zsh` |
 | Mac package requirements | `packages/Brewfile` |
+| Continuous integration | `.github/workflows/ci.yml` |
 | Disposable validation | `tests/container/Dockerfile`, `tests/container/install-tools.sh`, `tests/container/install-plugins.sh`, `tests/container/verify.ts`, `tests/container/history-pty.go` |
 | Documents added in this review | `PUBLIC-CONTENTS.md`, `ACTIVATION.md`, `SKILL-SOURCES.md` |
 | Synthetic override examples | `examples/.gitconfig.local.example`, `examples/.zshenv.local.example`, `examples/.zshrc.local.example` |
 
 Final integration review includes the completed activation/source documents, synthetic override examples, and updated project/device guidance. The examples contain only comments and synthetic placeholders, including an example.invalid address. The exact reviewed hashes are recorded locally in excluded `outputs/public-files.sha256`; any later change requires another review and snapshot. Publication and current Mac activation were separately authorized and completed; this inventory does not authorize future device rollouts or arbitrary new files.
 
-The native macOS rehearsal revision reviews two shared shell changes (Homebrew completion paths and explicit automatic icons for tree), its updated synthetic alias assertion, and the setup/results documentation and decisions. They add only generic paths, public software provenance, synthetic tests, and measured outcomes. VM disks, temporary SSH material, host state and detailed logs remain excluded. Refresh the same exact 39-file hash snapshot after these changes; native test success does not authorize publication or live host activation.
+The native macOS rehearsal revision reviews two shared shell changes (Homebrew completion paths and explicit automatic icons for tree), its updated synthetic alias assertion, and the setup/results documentation and decisions. They add only generic paths, public software provenance, synthetic tests, and measured outcomes. VM disks, temporary SSH material, host state and detailed logs remain excluded. For each subsequent revision, regenerate the hash snapshot from the exact current inventory above (now 40 files, including `.github/workflows/ci.yml`), and verify that its paths match the inventory; native test success does not authorize publication or live host activation.
 
 ## Private and generated exclusions
 

@@ -1,6 +1,6 @@
 # Plain dotfiles baseline
 
-Status: the reviewed 39-file baseline is published at [alexcatdad/dotfiles](https://github.com/alexcatdad/dotfiles) and activated on the current Mac. All 18 live checks passed; repeated activation made zero writes. Private backups and the deployment journal remain outside the repository. Other devices have not been activated.
+Status: the original reviewed 39-file baseline is published at [alexcatdad/dotfiles](https://github.com/alexcatdad/dotfiles) and activated on the current Mac. All 18 live checks passed; repeated activation made zero writes. Private backups and the deployment journal remain outside the repository. Other devices have not been activated. The current public inventory contains 40 files after adding the CI workflow; see `PUBLIC-CONTENTS.md`.
 
 This setup preserves the approved shell shortcuts and appearance using plain Zsh files, native package manifests, and explicit machine differences. No Paw, Zinit, Ansible, startup downloads, or synchronization daemon is required.
 
@@ -58,7 +58,7 @@ Alias reminders are implemented in plain Zsh at `home/.config/shell/alias-tips.z
 
 ## Public/private boundary
 
-Use this allowlist for future publication review: `home/`, `machines/`, `packages/`, `tests/`, `examples/`, `README.md`, `AGENTS.md`, `RUNBOOK.md`, `ACTIVATION.md`, `PUBLIC-CONTENTS.md`, `SKILL-SOURCES.md`, `.gitignore`, `.dockerignore`, and a reviewed `decisions.jsonl`. Review the exact individual files listed in `PUBLIC-CONTENTS.md`, not just these directory names. Reports and scratch files are excluded. Inherited unreviewed Git metadata was archived privately; the public repository starts with fresh reviewed history.
+Use this allowlist for future publication review: `.github/workflows/ci.yml`, `home/`, `machines/`, `packages/`, `tests/`, `examples/`, `README.md`, `AGENTS.md`, `RUNBOOK.md`, `ACTIVATION.md`, `PUBLIC-CONTENTS.md`, `SKILL-SOURCES.md`, `.gitignore`, `.dockerignore`, and a reviewed `decisions.jsonl`. Review the exact individual files listed in `PUBLIC-CONTENTS.md`, not just these directory names. Reports and scratch files are excluded. Inherited unreviewed Git metadata was archived privately; the public repository starts with fresh reviewed history.
 
 Do not copy host credential files, SSH keys/configuration, authorized keys, known hosts, Atuin keys/session/database, shell histories, environment databases, application caches, hardware identities, or project secrets. `.gitconfig.local`, `.zshenv.local`, and `.zshrc.local` remain private. Secret filtering in history is a convenience, not a guarantee that commands are secret-free.
 
@@ -74,6 +74,12 @@ docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges d
 The build context is allowlisted. No host home, SSH data, private environment, Git metadata, Docker socket, or live dotfiles are mounted into the container. A non-root disposable user runs the checks. Tests create only synthetic history, environment files, and fixture Git repositories inside the container. The named image and build cache remain for reproduction; test containers are removed on exit.
 
 The integration runner uses Bun and a standard-library Go helper for the real pseudo-terminal history search check. Tests also verify that Python is absent. The official binary/plugin archives are version/commit pinned and checksum-verified. The base image is digest pinned. Debian package versions are recorded from the test image but use Debian's current signed repositories rather than a frozen snapshot.
+
+## Continuous integration
+
+`.github/workflows/ci.yml` runs on pull requests, pushes to `main`, and manual dispatch. The ARM64 Linux job runs the Docker commands above, including all 18 isolated integration checks. The macOS job parses shared and machine Zsh files and validates the Brewfile with Ruby and Homebrew without installing packages.
+
+The workflow uses a commit-pinned checkout with read-only repository permission and no persisted credentials. New runs cancel older runs for the same pull request or branch. CI does not activate dotfiles, validate GUI appearance, or establish real connectivity.
 
 ## Setup later
 
