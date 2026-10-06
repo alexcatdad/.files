@@ -6,6 +6,11 @@
     defaultBranch = main
 [pull]
     rebase = true
+[rebase]
+    autoSquash = true
+[rerere]
+    enabled = true
+    autoupdate = false
 [push]
     default = current
     autoSetupRemote = true
@@ -13,8 +18,9 @@
     prune = true
 [diff]
     colorMoved = default
+    algorithm = histogram
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 [color]
     ui = auto
 [filter "lfs"]
