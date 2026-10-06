@@ -1,0 +1,16 @@
+# Defense in depth; stage only explicitly reviewed public files.
+.DS_Store
+work/
+outputs/
+*.local
+*.env
+.env
+.env.*
+!.env.example
+.ssh/
+.zsh_history
+.zsh_sessions/
+.config/atuin/*.db*
+.config/atuin/key
+.config/atuin/session
+.config/shell/machine.zsh

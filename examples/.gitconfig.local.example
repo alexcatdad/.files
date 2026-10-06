@@ -1,0 +1,6 @@
+# Example only. Create ~/.gitconfig.local privately during an authorized setup.
+# Replace these synthetic values; do not commit the completed local file.
+# [user]
+#     name = Example User
+#     email = user@example.invalid
+# Signing settings belong here only after checking the device's existing setup.

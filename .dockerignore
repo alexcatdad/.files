@@ -1,0 +1,15 @@
+**
+!home/
+!home/**
+!tests/
+!tests/container/
+!tests/container/**
+# Never admit private overrides/state even if added under the candidate home.
+home/**/*.local
+home/.config/shell/machine.zsh
+home/.config/atuin/*.db*
+home/.config/atuin/key
+home/.config/atuin/session
+home/.ssh/**
+home/.zsh_history
+home/.zsh_sessions/**

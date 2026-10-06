@@ -1,0 +1,4 @@
+# Example only. Create ~/.zshrc.local privately for reviewed interactive overrides.
+# Do not copy existing histories, account data, private project settings, or keys.
+# Keep project-specific environment and tool versions in their project.
+# No downloads, installs, updates, or synchronization in this file.

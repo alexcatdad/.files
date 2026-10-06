@@ -1,0 +1,4 @@
+# Example only. Create ~/.zshenv.local privately if a device needs overrides.
+# This file runs for non-interactive shells too: keep it quiet and lightweight.
+# Use literal non-secret settings; no downloads, installs, sync, or credentials.
+# export EDITOR='vi'
