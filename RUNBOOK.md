@@ -1,8 +1,12 @@
 # Dotfiles review runbook
 
+## Authorized repository rename
+
+The user requests the standard name `dotfiles`. Rename the existing public repository with `gh repo rename dotfiles --repo alexcatdad/.files --yes`, update origin to `git@github.com:alexcatdad/dotfiles.git`, update current documentation links, and append the outcome decision. Review and commit only the changed public documents, push main, then verify the repository name, visibility and remote head. No device configuration changes are needed. To reverse a rename, obtain task authorization and use the same sequence with the prior name.
+
 ## Authorized publication and current Mac activation
 
-Completed under the user's authorization: the public `.files` repository contains exactly 39 reviewed files in fresh history, and the current Mac baseline is active. Inherited Git metadata and rollback state were preserved privately outside the project. Public commits use GitHub no-reply authorship. The following sequence records the performed operation and is not authorization for another target.
+Completed under the user's authorization: the public `dotfiles` repository contains exactly 39 reviewed files in fresh history, and the current Mac baseline is active. Inherited Git metadata and rollback state were preserved privately outside the project. Public commits use GitHub no-reply authorship. The following sequence records the performed operation and is not authorization for another target.
 
 The selected 18 destinations made 17 writes and one identical-file no-op; a repeated application made zero writes. Seven original symlink objects were backed up without modifying their targets. Existing identical ledger skill files and private startup overrides were retained. Three missing Zsh plugins were installed without upgrades; the verified manually installed ChatGPT app was preserved. A native completion audit required removal of the group-write bit from one Homebrew completion parent directory; its prior mode and ownership were recorded privately for guarded rollback. All 18 live checks passed with synthetic fixtures. Real connectivity, visual appearance, licenses, accounts, and permissions remain separate acceptance checks.
 
