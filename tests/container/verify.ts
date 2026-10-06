@@ -70,7 +70,7 @@ function environment() {
   return "PATH remains unique and fnm has priority; plugins do not load in non-interactive shells.";
 }
 function gitPreferences() {
-  const expected = {"init.defaultBranch":"main", "pull.rebase":"true", "push.default":"current", "push.autoSetupRemote":"true", "fetch.prune":"true", "merge.conflictstyle":"diff3", "core.autocrlf":"input"};
+  const expected = {"init.defaultBranch":"main", "pull.rebase":"true", "push.default":"current", "push.autoSetupRemote":"true", "fetch.prune":"true", "merge.conflictstyle":"zdiff3", "rerere.enabled":"true", "rerere.autoupdate":"false", "rebase.autoSquash":"true", "diff.algorithm":"histogram", "core.autocrlf":"input"};
   for (const [key,value] of Object.entries(expected)) assert.equal(run(["git","config","--get",key]).stdout.trim(),value);
   assert.equal(run(["git","config","--get-regexp","^alias\\."]).returncode,1);
   const p = directory("git-ignore"); run(["git","init",p],{check:true}); touch(join(p,".DS_Store"));
