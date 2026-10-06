@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  syntax:
+    name: macOS syntax
+    runs-on: macos-15
+    timeout-minutes: 10
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+      HOMEBREW_NO_ANALYTICS: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Parse Zsh configuration
+        shell: zsh -f {0}
+        run: |
+          set -eu
+          for file in home/.zshenv home/.zprofile home/.zshrc home/.config/shell/*.zsh machines/*.zsh; do
+            zsh -n "$file"
+          done
+      - name: Parse native Brewfile without installing packages
+        run: |
+          ruby -c packages/Brewfile
+          brew bundle list --all --file=packages/Brewfile
+
+  container:
+    name: ARM64 integration
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build validation image
+        run: docker build --platform linux/arm64 -f tests/container/Dockerfile -t dotfiles-validation:review .
+      - name: Run isolated integration checks
+        run: docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges dotfiles-validation:review

@@ -25,6 +25,7 @@ The files below are publication candidates, not a staging command. New files und
 | Personal ledger skill | `home/.agents/skills/personal-ledger/SKILL.md`, `home/.agents/skills/personal-ledger/agents/openai.yaml`, `home/.agents/skills/personal-ledger/references/statements.md`, `home/.agents/skills/personal-ledger/references/evidence.md` |
 | Deliberate machine difference | `machines/mac-studio.zsh` |
 | Mac package requirements | `packages/Brewfile` |
+| Continuous integration | `.github/workflows/ci.yml` |
 | Disposable validation | `tests/container/Dockerfile`, `tests/container/install-tools.sh`, `tests/container/install-plugins.sh`, `tests/container/verify.ts`, `tests/container/history-pty.go` |
 | Documents added in this review | `PUBLIC-CONTENTS.md`, `ACTIVATION.md`, `SKILL-SOURCES.md` |
 | Synthetic override examples | `examples/.gitconfig.local.example`, `examples/.zshenv.local.example`, `examples/.zshrc.local.example` |
